@@ -14,11 +14,14 @@ export const Navbar = () => {
 
       <div className={styles.buttons__wrapper}>
         <ul>
-          <li className={styles.nav__button}>Главная</li>
+          <li className={`${styles.nav__button} ${styles.main__button}`}>
+            Главная
+          </li>
           <li className={styles.nav__button}>О нас</li>
           <li className={styles.nav__button}>Наши услуги</li>
-          <li className={styles.nav__button}>Лицензия</li>
+          <li className={styles.nav__button}>Цены</li>
           <li className={styles.nav__button}>Локация</li>
+          <li className={styles.nav__button}>Лицензия</li>
         </ul>
       </div>
 
