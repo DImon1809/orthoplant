@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import slide1 from "../../assets/slide1.svg";
 import slide2 from "../../assets/slide2.svg";
@@ -28,7 +28,23 @@ export const MainSlider = () => {
 
       setPercent((prev) => (prev !== -200 ? prev - 100 : -200));
     }
+
+    if (direction === "right" && percent === -200 && slider?.current) {
+      slider.current.style.transform = `translateX(${0}%)`;
+
+      setPercent(0);
+    }
   };
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      arrowButtonHandler("right");
+    }, 5000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, [percent]);
 
   return (
     <div className={styles.main__slider}>
