@@ -36,15 +36,15 @@ export const MainSlider = () => {
     }
   };
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      arrowButtonHandler("right");
-    }, 5000);
+  // useEffect(() => {
+  //   const timer = setInterval(() => {
+  //     arrowButtonHandler("right");
+  //   }, 5000);
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, [percent]);
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // }, [percent]);
 
   return (
     <div className={styles.main__slider}>
@@ -52,7 +52,10 @@ export const MainSlider = () => {
         <h4>Ваша улыбка начинается здесь</h4>
       </div>
 
-      <div className={styles.slider__content}>
+      <div
+        className={styles.slider__content}
+        onTouchMove={(e) => console.log(e)}
+      >
         <ul ref={slider}>
           <li className={styles.slide}>
             <img src={slide1} alt="#" />
