@@ -31,7 +31,7 @@ export const AboutUs = () => {
         <h3 className={styles.title}>О НАС</h3>
         <div className={styles.big__card}>
           <div>
-            <h4 className={styles.title}>Наша миссия</h4>
+            <h4 className={styles.card__title}>Наша миссия</h4>
           </div>
           <div>
             <p className={styles.paragraph}>
@@ -50,7 +50,7 @@ export const AboutUs = () => {
         </div>
       </div>
       <div className={styles.office__slider}>
-        <img src={OfficeSlide1} alt="#" />
+        <img src={OfficeSlide1} alt="#" className={styles.slide} />
       </div>
     </section>
   );

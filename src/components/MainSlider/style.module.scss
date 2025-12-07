@@ -22,7 +22,24 @@
 
   @media (max-width: 620px) {
     width: 100%;
+    height: 280px;
     border-radius: 0;
+  }
+
+  @media (max-width: 500px) {
+    height: 260px;
+  }
+
+  @media (max-width: 470px) {
+    height: 240px;
+  }
+
+  @media (max-width: 420px) {
+    height: 220px;
+  }
+
+  @media (max-width: 380px) {
+    height: 200px;
   }
 
   .slider__header {
@@ -32,6 +49,10 @@
     @media (max-width: 1010px) {
       font-size: 50px;
       padding: 18px 0;
+    }
+
+    @media (max-width: 620px) {
+      padding: 12px 0;
     }
 
     h4 {
@@ -48,6 +69,14 @@
 
       @media (max-width: 810px) {
         font-size: 40px;
+      }
+
+      @media (max-width: 620px) {
+        font-size: 30px;
+      }
+
+      @media (max-width: 470px) {
+        font-size: 26px;
       }
     }
   }
@@ -72,6 +101,11 @@
     @media (max-width: 810px) {
       width: 540px;
       height: 220px;
+    }
+
+    @media (max-width: 620px) {
+      width: 94%;
+      height: 68%;
     }
 
     .arrow__button {
@@ -136,6 +170,11 @@
         @media (max-width: 810px) {
           width: 540px;
           height: 220px;
+        }
+
+        @media (max-width: 620px) {
+          width: 100%;
+          height: 100%;
         }
 
         img {
