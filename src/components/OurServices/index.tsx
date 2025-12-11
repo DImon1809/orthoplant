@@ -17,31 +17,37 @@ type CardItem = {
   Icon: JSX.Element;
 };
 
-const cards: CardItem[] = [
-  {
-    title: "Коронка и мост",
-    Icon: <img src={Crown} alt="#" />,
-  },
-  {
-    title: "Ортодонтия",
-    Icon: <img src={Orthodontics} alt="#" />,
-  },
-  {
-    title: "Детская стоматология",
-    Icon: <img src={ChildDentistry} alt="#" />,
-  },
-  {
-    title: "Эстетическая стоматология",
-    Icon: <img src={EsteticDentistry} alt="#" />,
-  },
-  {
-    title: "Хирургия и Пародонтология",
-    Icon: <img src={Surgery} alt="#" />,
-  },
-  {
-    title: "ALL-ON-4",
-    Icon: <img src={AllOn4} alt="#" />,
-  },
+const cards: CardItem[][] = [
+  [
+    {
+      title: "Коронка и мост",
+      Icon: <img src={Crown} alt="#" />,
+    },
+    {
+      title: "Ортодонтия",
+      Icon: <img src={Orthodontics} alt="#" />,
+    },
+  ],
+  [
+    {
+      title: "Детская стоматология",
+      Icon: <img src={ChildDentistry} alt="#" />,
+    },
+    {
+      title: "Эстетическая стоматология",
+      Icon: <img src={EsteticDentistry} alt="#" />,
+    },
+  ],
+  [
+    {
+      title: "Хирургия и Пародонтология",
+      Icon: <img src={Surgery} alt="#" />,
+    },
+    {
+      title: "ALL-ON-4",
+      Icon: <img src={AllOn4} alt="#" className={styles.icon} />,
+    },
+  ],
 ];
 
 const Card = ({ title, Icon }: CardItem) => {
@@ -62,7 +68,7 @@ export const OurServices = () => {
       <div className={styles.cards__wrapper}>
         <div className={styles.big__card}>
           <div className={styles.info}>
-            <h4 className={styles.title}>ТЕРАПИЯ</h4>
+            <h4 className={styles.title__stand}>ТЕРАПИЯ</h4>
             <ul className={styles.info__list}>
               <li>чистка зубов</li>
               <li>удаление зуба</li>
@@ -75,7 +81,7 @@ export const OurServices = () => {
         </div>
         <div className={styles.big__card}>
           <div>
-            <h4 className={styles.title}>ИМПЛАНТАЦИЯ ЗУБА</h4>
+            <h4 className={styles.title__implant}>ИМПЛАНТАЦИЯ ЗУБА</h4>
           </div>
           <div>
             <img className={styles.implant} src={Implant} alt="#" />
@@ -83,8 +89,11 @@ export const OurServices = () => {
         </div>
       </div>
       <div className={styles.card__grid}>
-        {cards.map(({ title, Icon }, index) => (
-          <Card title={title} Icon={Icon} key={index} />
+        {cards.map((arr, index) => (
+          <div className={styles.cards__array__wrapper} key={index}>
+            <Card title={arr[0].title} Icon={arr[0].Icon} />
+            <Card title={arr[1].title} Icon={arr[1].Icon} />
+          </div>
         ))}
       </div>
     </section>
