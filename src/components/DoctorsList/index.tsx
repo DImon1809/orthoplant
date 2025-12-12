@@ -60,9 +60,9 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
     <div className={styles.doctor__card}>
       <div className={styles.icon__wrapper}>{doctor.Icon}</div>
       <div>
-        <h5
-          className={styles.doctor__fio}
-        >{`${doctor.firstName} ${doctor.lastName} ${doctor?.surname || ""}`}</h5>
+        <h5 className={styles.doctor__fio}>{`${doctor.firstName} ${
+          doctor.lastName
+        } ${doctor?.surname || ""}`}</h5>
         <div className={styles.info}>
           <p className={styles.profession}>{doctor.profession}</p>
           <p
@@ -72,7 +72,7 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
       </div>
 
       <div className={styles.doctor__button}>
-        <span>Подробней о враче</span>
+        <span>Подробнее</span>
       </div>
     </div>
   );

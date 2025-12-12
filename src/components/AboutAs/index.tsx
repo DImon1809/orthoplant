@@ -1,15 +1,15 @@
-import React from "react";
+import { useMemo } from "react";
 
 import OfficeSlide1 from "../../assets/OfficeSlide1.svg";
 import AskewArrow from "../../assets/AskewArrow.svg";
+
+import { useIsMobile } from "../../hooks/useIsMobule";
 
 import styles from "./style.module.scss";
 
 type CardProps = {
   link: string;
 };
-
-const links = ["Профессиональные стоматологи", "Прайс лист"];
 
 const CardLink = ({ link }: CardProps) => {
   return (
@@ -25,6 +25,16 @@ const CardLink = ({ link }: CardProps) => {
 };
 
 export const AboutUs = () => {
+  const { isMobile } = useIsMobile();
+
+  const links = useMemo(
+    () => [
+      isMobile ? "Специалисты" : "Профессиональные стоматологи",
+      "Прайс лист",
+    ],
+    [isMobile]
+  );
+
   return (
     <section className={styles.about__us}>
       <div className={styles.info}>

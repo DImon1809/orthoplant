@@ -36,15 +36,15 @@ export const MainSlider = () => {
     }
   };
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     arrowButtonHandler("right");
-  //   }, 5000);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      arrowButtonHandler("right");
+    }, 5000);
 
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, [percent]);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [percent]);
 
   return (
     <div className={styles.main__slider}>

@@ -16,10 +16,10 @@ export const Navbar = () => {
 
       <div className={`${styles.buttons__wrapper} ${active && styles.active}`}>
         <div className={styles.nav__buttons__wrapper}>
+          <span className={`${styles.nav__button} ${styles.main__button}`}>
+            Главная
+          </span>
           <ul>
-            <li className={`${styles.nav__button} ${styles.main__button}`}>
-              Главная
-            </li>
             <li className={styles.nav__button}>О нас</li>
             <li className={styles.nav__button}>Наши услуги</li>
             <li className={styles.nav__button}>Цены</li>

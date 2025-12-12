@@ -3,7 +3,7 @@ import type { JSX } from "react";
 import Implant from "../../assets/Implant.svg";
 import Stand from "../../assets/Stand.svg";
 
-import Crown from "../../assets/Сrown.svg";
+import Crown from "../../assets/Crown.svg";
 import Orthodontics from "../../assets/Orthodontics.svg";
 import ChildDentistry from "../../assets/ChildDentistry.svg";
 import EsteticDentistry from "../../assets/EsteticDentistry.svg";
