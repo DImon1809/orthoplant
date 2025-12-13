@@ -1,19 +1,24 @@
 import React from "react";
 
+import { Route, Routes } from "react-router-dom";
+
 import { Navbar } from "./components/Navbar";
-import { MainSlider } from "./components/MainSlider";
-import { AboutUs } from "./components/AboutAs";
-import { OurServices } from "./components/OurServices";
-import { DoctorsList } from "./components/DoctorsList";
+
+import { MainPage } from "./pages/MainPage";
+import { ServicePage } from "./pages/ServicePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 export const App = () => {
   return (
     <>
       <Navbar />
-      <MainSlider />
-      <AboutUs />
-      <OurServices />
-      <DoctorsList />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+
+        <Route path="/services/:serviceName" element={<ServicePage />} />
+
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
     </>
   );
 };

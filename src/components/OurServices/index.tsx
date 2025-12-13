@@ -20,7 +20,7 @@ type CardItem = {
 const cards: CardItem[][] = [
   [
     {
-      title: "Коронка и мост",
+      title: "Протезирование",
       Icon: <img src={Crown} alt="#" />,
     },
     {
