@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect } from "react";
 
 import { useParams } from "react-router-dom";
 
@@ -20,6 +20,10 @@ export const ServicePage = () => {
   const { getServiceInfo } = useGetServiceInfo();
 
   console.log(serviceName);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [serviceName]);
 
   if (!serviceName || !(serviceName in serviceMap)) return <NotFoundPage />;
 

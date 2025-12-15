@@ -1,0 +1,27 @@
+.service__costs {
+  width: 1306px;
+  margin: 0 auto;
+  margin-top: 60px;
+
+  .title {
+    font-size: 60px;
+    font-weight: 500;
+  }
+
+  .costs__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+
+    .costs__card {
+      padding: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f6f6f6;
+      border-radius: 0 62px 0 62px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      font-size: 24px;
+    }
+  }
+}

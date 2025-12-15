@@ -27,12 +27,12 @@ const cards: CardItem[][] = [
     {
       title: "Протезирование",
       Icon: <img src={Crown} alt="#" />,
-      type: "stand",
+      type: "crown",
     },
     {
       title: "Ортодонтия",
       Icon: <img src={Orthodontics} alt="#" />,
-      type: "implant",
+      type: "orthodontics",
     },
   ],
   [

@@ -8,6 +8,7 @@ import { MainPage } from "./pages/MainPage";
 import { ServicePage } from "./pages/ServicePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { DoctorsList } from "./components/DoctorsList";
+import { Footer } from "./components/Footer";
 
 export const App = () => {
   return (
@@ -21,7 +22,8 @@ export const App = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
-      {/* <DoctorsList /> */}
+      <DoctorsList />
+      <Footer />
     </>
   );
 };

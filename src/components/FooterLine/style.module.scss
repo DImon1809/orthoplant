@@ -1,0 +1,24 @@
+.footer__line {
+  width: 1306px;
+  height: 36px;
+  padding: 0 20px;
+  background-color: #000000;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin: 0 auto;
+  margin-top: 60px;
+
+  .star__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    span {
+      color: #e39b13;
+      font-size: 14px;
+    }
+  }
+}

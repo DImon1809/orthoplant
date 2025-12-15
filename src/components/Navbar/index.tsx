@@ -4,17 +4,27 @@ import logo from "../../assets/logo.svg";
 import calendar from "../../assets/Calendar.svg";
 
 import styles from "./style.module.scss";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [active, setActive] = useState<boolean>(false);
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo__wrapper}>
-        <img src={logo} alt="#" onClick={() => navigate("/")} />
+        <img
+          src={logo}
+          alt="#"
+          onClick={() => {
+            if (location.pathname !== "/") navigate("/");
+            if (location.pathname === "/") window.scrollTo(0, 0);
+
+            setActive(false);
+          }}
+        />
       </div>
 
       <div className={`${styles.buttons__wrapper} ${active && styles.active}`}>
@@ -22,7 +32,9 @@ export const Navbar = () => {
           <span
             className={`${styles.nav__button} ${styles.main__button}`}
             onClick={() => {
-              navigate("/");
+              if (location.pathname !== "/") navigate("/");
+              if (location.pathname === "/") window.scrollTo(0, 0);
+
               setActive(false);
             }}
           >
