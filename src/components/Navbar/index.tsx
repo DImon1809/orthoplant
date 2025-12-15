@@ -4,19 +4,28 @@ import logo from "../../assets/logo.svg";
 import calendar from "../../assets/Calendar.svg";
 
 import styles from "./style.module.scss";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
+  const navigate = useNavigate();
+
   const [active, setActive] = useState<boolean>(false);
 
   return (
     <nav className={styles.navbar}>
       <div className={styles.logo__wrapper}>
-        <img src={logo} alt="#" />
+        <img src={logo} alt="#" onClick={() => navigate("/")} />
       </div>
 
       <div className={`${styles.buttons__wrapper} ${active && styles.active}`}>
         <div className={styles.nav__buttons__wrapper}>
-          <span className={`${styles.nav__button} ${styles.main__button}`}>
+          <span
+            className={`${styles.nav__button} ${styles.main__button}`}
+            onClick={() => {
+              navigate("/");
+              setActive(false);
+            }}
+          >
             Главная
           </span>
           <ul>

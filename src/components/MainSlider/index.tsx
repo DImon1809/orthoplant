@@ -49,7 +49,7 @@ export const MainSlider = () => {
   return (
     <div className={styles.main__slider}>
       <div className={styles.slider__header}>
-        <h4>Ваша улыбка начинается здесь</h4>
+        <h4>Стоматология, где каждая улыбка становится счастьем</h4>
       </div>
 
       <div

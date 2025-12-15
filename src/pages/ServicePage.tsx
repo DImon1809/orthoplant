@@ -2,10 +2,41 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
+import {
+  serviceMap,
+  useGetServiceInfo,
+  type ServiceMap,
+  type ServicePageType,
+} from "../hooks/useGetServiceInfo";
+import { ServiceMainCard } from "../components/ServiceMainCard";
+import { ServiceCard } from "../components/ServiceCard";
+import { WhyChangeCard } from "../components/WhyChangeCard";
+import { ServiceCostsList } from "../components/ServiceCostsList";
+import { NotFoundPage } from "./NotFoundPage";
+
 export const ServicePage = () => {
   const { serviceName } = useParams();
 
+  const { getServiceInfo } = useGetServiceInfo();
+
   console.log(serviceName);
 
-  return <div>ServicePage</div>;
+  if (!serviceName || !(serviceName in serviceMap)) return <NotFoundPage />;
+
+  const serviceInfo: ServicePageType = getServiceInfo(
+    serviceName as ServiceMap
+  );
+
+  return (
+    <>
+      <ServiceMainCard serviceName={serviceInfo.serviceName} />
+      {serviceInfo.items.map((item, key) => (
+        <ServiceCard item={item} key={key} />
+      ))}
+
+      <WhyChangeCard item={serviceInfo.whyChange} />
+
+      <ServiceCostsList item={serviceInfo.servicesCosts} />
+    </>
+  );
 };

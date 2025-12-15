@@ -7,6 +7,7 @@ import { Navbar } from "./components/Navbar";
 import { MainPage } from "./pages/MainPage";
 import { ServicePage } from "./pages/ServicePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { DoctorsList } from "./components/DoctorsList";
 
 export const App = () => {
   return (
@@ -19,6 +20,8 @@ export const App = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      {/* <DoctorsList /> */}
     </>
   );
 };

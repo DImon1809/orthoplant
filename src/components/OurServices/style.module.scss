@@ -11,6 +11,10 @@
     width: 90%;
   }
 
+  @media (max-width: 460px) {
+    gap: 16px;
+  }
+
   .title {
     font-size: 70px;
 
@@ -39,6 +43,10 @@
       flex-direction: column;
     }
 
+    @media (max-width: 460px) {
+      gap: 16px;
+    }
+
     .big__card {
       width: 638px;
       height: 310px;
@@ -46,8 +54,22 @@
       border-radius: 36px;
       // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       padding: 30px;
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
+      transition: all 0.3s ease;
+
+      @media (hover: hover) {
+        &:hover {
+          transform: translateY(-5px);
+          opacity: 0.5;
+        }
+      }
+
+      &:active {
+        transform: translateY(-5px);
+        opacity: 0.5;
+      }
 
       @media (max-width: 1330px) {
         width: 480px;
@@ -68,6 +90,7 @@
       @media (max-width: 620px) {
         width: 100%;
         height: 220px;
+        cursor: default;
       }
 
       @media (max-width: 460px) {
@@ -228,6 +251,10 @@
       grid-template-columns: none;
     }
 
+    @media (max-width: 460px) {
+      gap: 16px;
+    }
+
     .cards__array__wrapper {
       display: flex;
       justify-content: space-between;
@@ -241,7 +268,21 @@
     border-radius: 36px;
     padding: 30px;
     position: relative;
+    cursor: pointer;
     // box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-5px);
+        opacity: 0.5;
+      }
+    }
+
+    &:active {
+      transform: translateY(-5px);
+      opacity: 0.5;
+    }
 
     @media (max-width: 1330px) {
       width: 220px;
@@ -263,6 +304,7 @@
     @media (max-width: 620px) {
       width: 46%;
       height: 220px;
+      cursor: default;
     }
 
     @media (max-width: 550px) {
@@ -271,6 +313,7 @@
     }
 
     @media (max-width: 460px) {
+      width: 47%;
       height: 170px;
     }
 
@@ -327,6 +370,15 @@
           width: 100%;
           height: 100%;
         }
+      }
+    }
+
+    .orthodontics {
+      @media (max-width: 500px) {
+        width: 70%;
+        height: 70%;
+        right: 20px;
+        bottom: -10px;
       }
     }
   }

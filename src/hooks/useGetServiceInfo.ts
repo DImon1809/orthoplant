@@ -1,28 +1,40 @@
-const serviceMap = {
+export const serviceMap = {
   stand: "stand",
   implant: "implant",
   crown: "crown",
   orthodontics: "orthodontics",
+  childDentistry: "childDentistry",
+  esteticDentistry: "esteticDentistry",
+  surgery: "surgery",
+  allOn4: "allOn4",
 } as const;
 
-type ServiceMap = keyof typeof serviceMap;
+export type ServiceMap = keyof typeof serviceMap;
 
-type Services = {
-  [k in ServiceMap]: {
-    serviceName: string;
-    items: {
-      title: string;
-      item: string | string[] | { [k in string]: string };
-    }[];
-    whyChange: {
-      title: string;
-      text: string;
-    };
-    servicesCosts: {
-      title: string;
-      costs: { service: string; cost: string }[];
-    };
-  };
+export type Item = {
+  title: string;
+  item: string | string[] | { [k in string]: string };
+};
+
+export type WhyChange = {
+  title: string;
+  text: string;
+};
+
+export type ServicesCosts = {
+  title: string;
+  costs: { service: string; cost: string }[];
+};
+
+export type ServicePageType = {
+  serviceName: string;
+  items: Item[];
+  whyChange: WhyChange;
+  servicesCosts: ServicesCosts;
+};
+
+export type Services = {
+  [k in ServiceMap]: ServicePageType;
 };
 
 const services: Services = {
@@ -455,7 +467,9 @@ const services: Services = {
 };
 
 export const useGetServiceInfo = () => {
-  const getServiceInfo = () => {};
+  const getServiceInfo = (key: ServiceMap) => {
+    return services[key];
+  };
 
   return { getServiceInfo };
 };

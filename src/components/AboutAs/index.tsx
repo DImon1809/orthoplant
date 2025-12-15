@@ -30,7 +30,7 @@ export const AboutUs = () => {
   const links = useMemo(
     () => [
       isMobile ? "Специалисты" : "Профессиональные стоматологи",
-      "Прайс лист",
+      "ЦЕНЫ ЗА УСЛУГИ",
     ],
     [isMobile]
   );

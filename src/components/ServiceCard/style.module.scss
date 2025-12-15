@@ -1,0 +1,30 @@
+.card__wrapper {
+  width: 1306px;
+  margin: 0 auto;
+  margin-top: 60px;
+
+  .title {
+    font-size: 60px;
+    font-weight: 500;
+  }
+}
+
+.service__card {
+  padding: 40px;
+  background-color: #f6f6f6;
+  border-radius: 0 62px 0 62px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  &.split {
+    margin-top: 40px;
+  }
+
+  .items {
+    margin-left: 20px;
+  }
+
+  .text,
+  .item {
+    font-size: 24px;
+  }
+}
