@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import slide1 from "../../assets/slide1.svg";
 import slide2 from "../../assets/slide2.svg";

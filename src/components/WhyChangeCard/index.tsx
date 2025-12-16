@@ -1,4 +1,3 @@
-import React from "react";
 import type { WhyChange } from "../../hooks/useGetServiceInfo";
 import { checkLogoInTitle } from "../../utils/checkLogoInTitle";
 

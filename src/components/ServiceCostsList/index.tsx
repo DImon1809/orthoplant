@@ -1,4 +1,3 @@
-import React from "react";
 import type { ServicesCosts } from "../../hooks/useGetServiceInfo";
 
 import styles from "./style.module.scss";

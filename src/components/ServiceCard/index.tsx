@@ -1,5 +1,3 @@
-import React from "react";
-
 import type { Item } from "../../hooks/useGetServiceInfo";
 
 import styles from "./style.module.scss";
