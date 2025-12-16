@@ -1,5 +1,5 @@
 .footer__line {
-  width: 1306px;
+  width: 96%;
   height: 36px;
   padding: 0 20px;
   background-color: #000000;
@@ -11,6 +11,10 @@
   margin: 0 auto;
   margin-top: 60px;
 
+  @media (max-width: 500px) {
+    height: 30px;
+  }
+
   .star__wrapper {
     display: flex;
     align-items: center;
@@ -19,6 +23,16 @@
     span {
       color: #e39b13;
       font-size: 14px;
+
+      @media (max-width: 500px) {
+        font-size: 12px;
+      }
+    }
+
+    .star {
+      @media (max-width: 500px) {
+        width: 8px;
+      }
     }
   }
 }

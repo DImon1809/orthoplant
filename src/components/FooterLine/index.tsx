@@ -1,5 +1,3 @@
-import React from "react";
-
 import Star from "../../assets/Star.svg";
 
 import styles from "./style.module.scss";

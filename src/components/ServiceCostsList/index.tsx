@@ -16,7 +16,7 @@ export const ServiceCostsList = ({ item }: Props) => {
         {item.costs.map((cost, key) => (
           <li key={key} className={styles.costs__card}>
             <div>{cost.service}</div>
-            <div>{cost.cost}</div>
+            <div className={styles.cost}>{cost.cost}</div>
           </li>
         ))}
       </ul>

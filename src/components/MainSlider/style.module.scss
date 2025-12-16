@@ -1,12 +1,12 @@
 .main__slider {
   width: 1290px;
-  height: 628px;
+  height: 560px;
   background-color: var(--main-color);
   border-radius: 36px;
   margin: 32px auto;
   margin-top: 132px;
 
-  @media (max-width: 1300px) {
+  @media (max-width: 1330px) {
     width: 1000px;
     height: 510px;
   }

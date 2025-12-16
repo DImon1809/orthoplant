@@ -19,8 +19,6 @@ export const ServicePage = () => {
 
   const { getServiceInfo } = useGetServiceInfo();
 
-  console.log(serviceName);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [serviceName]);

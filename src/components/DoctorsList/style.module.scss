@@ -11,14 +11,58 @@
   flex-direction: column;
   gap: 40px;
 
+  @media (max-width: 1330px) {
+    width: 990px;
+  }
+
+  @media (max-width: 1010px) {
+    width: 806px;
+  }
+
+  @media (max-width: 810px) {
+    width: 600px;
+  }
+
+  @media (max-width: 620px) {
+    width: 90%;
+    gap: 20px;
+  }
+
   .title {
     font-size: 70px;
+
+    @media (max-width: 1330px) {
+      font-size: 60px;
+    }
+
+    @media (max-width: 1010px) {
+      font-size: 50px;
+    }
+
+    @media (max-width: 810px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 620px) {
+      font-size: 30px;
+    }
   }
 
   .doctors__slider {
     display: flex;
     gap: 30px;
     margin: 0 auto;
+
+    @media (max-width: 810px) {
+      width: 100%;
+      overflow-x: scroll;
+      scrollbar-width: thin;
+      gap: 50px;
+    }
+
+    @media (max-width: 620px) {
+      gap: 30px;
+    }
 
     .doctor__card {
       padding: 40px;
@@ -32,15 +76,47 @@
       gap: 20px;
       scale: 1.2;
 
+      @media (max-width: 1330px) {
+        padding: 0;
+        scale: 1;
+      }
+
+      @media (max-width: 810px) {
+        padding: 14px 0;
+      }
+
+      @media (max-width: 540px) {
+        gap: 12px;
+      }
+
       .icon__wrapper {
         width: 216px;
         height: 216px;
+
+        @media (max-width: 1010px) {
+          width: 175px;
+          height: 175px;
+        }
+
+        @media (max-width: 810px) {
+          width: 186px;
+          height: 186px;
+        }
+
+        @media (max-width: 540px) {
+          width: 160px;
+          height: 160px;
+        }
       }
 
       .doctor__fio {
         font-size: 18px;
         font-weight: 600;
         text-align: center;
+
+        @media (max-width: 540px) {
+          font-size: 17px;
+        }
       }
 
       .info {
@@ -54,6 +130,10 @@
           font-size: 16px;
           text-align: center;
           color: rgb(119, 119, 119);
+
+          @media (max-width: 540px) {
+            font-size: 15px;
+          }
         }
       }
 
@@ -69,9 +149,27 @@
         opacity: 1;
         transition: all 0.3s ease;
 
+        @media (max-width: 1010px) {
+          width: 178px;
+          height: 44px;
+        }
+
+        @media (max-width: 810px) {
+          width: 182px;
+        }
+
+        @media (max-width: 540px) {
+          width: 160px;
+          height: 38px;
+        }
+
         span {
           font-size: 16px;
           transition: all 0.3s ease;
+
+          @media (max-width: 540px) {
+            font-size: 15px;
+          }
         }
 
         @media (hover: hover) {

@@ -1,11 +1,49 @@
 .footer {
   width: 100%;
-  padding: 40px 60px;
   border-radius: 32px 32px 0 0;
   background-color: #f6f6f6;
   margin-top: 60px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  padding: 60px 0;
+
+  @media (max-width: 1330px) {
+    padding: 50px 0;
+  }
+
+  @media (max-width: 620px) {
+    padding: 40px 0;
+  }
+
+  .columns__wrapper {
+    width: 1300px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 0 auto;
+
+    @media (max-width: 1330px) {
+      width: 990px;
+    }
+
+    @media (max-width: 1010px) {
+      width: 806px;
+    }
+
+    @media (max-width: 810px) {
+      width: 600px;
+      height: 360px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+
+    @media (max-width: 620px) {
+      width: 90%;
+      height: 340px;
+      grid-template-columns: repeat(2, minmax(50%, 1fr));
+    }
+
+    @media (max-width: 500px) {
+      row-gap: 16px;
+    }
+  }
 
   .column__one {
     display: flex;
@@ -15,6 +53,16 @@
     .footer__logo {
       width: 306px;
       height: 68px;
+
+      @media (max-width: 810px) {
+        width: 290px;
+        height: 54px;
+      }
+
+      @media (max-width: 500px) {
+        width: 150px;
+        height: 40px;
+      }
     }
   }
 
@@ -26,6 +74,10 @@
     .title {
       font-size: 36px;
       font-weight: 500;
+
+      @media (max-width: 500px) {
+        font-size: 26px;
+      }
     }
 
     .items {
@@ -73,13 +125,36 @@
         opacity: 0.5;
       }
 
+      @media (max-width: 1010px) {
+        width: 190px;
+        height: 56px;
+      }
+
+      @media (max-width: 810px) {
+        width: 170px;
+        height: 46px;
+      }
+
       @media (max-width: 620px) {
         cursor: default;
+      }
+
+      @media (max-width: 500px) {
+        width: 150px;
+        height: 40px;
       }
 
       span {
         color: #e8b120;
         font-size: 20px;
+
+        @media (max-width: 1010px) {
+          font-size: 18px;
+        }
+
+        @media (max-width: 500px) {
+          font-size: 16px;
+        }
       }
     }
 
@@ -87,6 +162,10 @@
     .email {
       font-weight: 600;
       font-size: 20px;
+
+      @media (max-width: 500px) {
+        font-size: 18px;
+      }
     }
   }
 }
