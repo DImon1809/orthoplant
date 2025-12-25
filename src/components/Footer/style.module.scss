@@ -102,6 +102,10 @@
     align-items: center;
     gap: 10px;
 
+    .button__wrapper {
+      text-decoration: none;
+    }
+
     .button {
       width: 216px;
       height: 66px;
@@ -158,7 +162,19 @@
       }
     }
 
-    .phone,
+    .phone__link {
+      font-weight: 600;
+
+      font-size: 20px;
+      text-align: center;
+      text-decoration: none;
+      color: #000;
+
+      @media (max-width: 620px) {
+        cursor: default;
+      }
+    }
+
     .email {
       font-weight: 600;
       font-size: 20px;

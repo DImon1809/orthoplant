@@ -14,6 +14,14 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    opacity: 0.5;
+    transform: translate(-30%, 30%);
+    transition: all 0.9s ease;
+
+    &.move {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
 
     .title {
       font-size: 70px;
@@ -124,6 +132,14 @@
   .office__slider {
     width: 638px;
     height: 840px;
+    transform: translate(30%, 30%);
+    opacity: 0.5;
+    transition: all 0.9s ease;
+
+    &.move {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
 
     @media (max-width: 1330px) {
       width: 464px;
@@ -172,6 +188,22 @@
     justify-content: space-between;
     padding: 30px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.9s ease;
+
+    &.step__right {
+      opacity: 0.5;
+      transform: translate(30%, 0);
+    }
+
+    &.step__left {
+      opacity: 0.5;
+      transform: translate(-30%, 0);
+    }
+
+    &.move {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
 
     @media (max-width: 1330px) {
       width: 250px;

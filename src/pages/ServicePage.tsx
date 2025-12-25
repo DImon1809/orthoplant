@@ -33,7 +33,7 @@ export const ServicePage = () => {
     <>
       <ServiceMainCard serviceName={serviceInfo.serviceName} />
       {serviceInfo.items.map((item, key) => (
-        <ServiceCard item={item} key={key} />
+        <ServiceCard item={item} key={key} index={key} />
       ))}
 
       <WhyChangeCard item={serviceInfo.whyChange} />

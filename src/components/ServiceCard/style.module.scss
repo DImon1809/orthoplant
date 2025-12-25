@@ -58,6 +58,22 @@
   background-color: #f6f6f6;
   border-radius: 0 62px 0 62px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.9s ease;
+
+  &.left {
+    opacity: 0.5;
+    transform: translateX(-30%);
+  }
+
+  &.right {
+    opacity: 0.5;
+    transform: translateX(30%);
+  }
+
+  &.move {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
   @media (max-width: 810px) {
     padding: 30px;

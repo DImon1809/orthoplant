@@ -43,7 +43,9 @@ export const Footer = () => {
                 <span>Онлайн запись</span>
               </div>
 
-              <span className={styles.phone}>+7 (999) 999-99-33</span>
+              <a href={"tel:+79999999933"} className={styles.phone__link}>
+                +7 (999) 999-99-33
+              </a>
               <span className={styles.email}>orthoplant@gmail.com</span>
             </div>
           )}
@@ -91,11 +93,15 @@ export const Footer = () => {
 
           {!isReverse && (
             <div className={styles.column__four}>
-              <div className={styles.button}>
-                <span>Онлайн запись</span>
-              </div>
+              <a href="#appointment" className={styles.button__wrapper}>
+                <div className={styles.button}>
+                  <span>Онлайн запись</span>
+                </div>
+              </a>
 
-              <span className={styles.phone}>+7 (999) 999-99-33</span>
+              <a href={"tel:+79999999933"} className={styles.phone__link}>
+                +7 (999) 999-99-33
+              </a>
               <span className={styles.email}>orthoplant@gmail.com</span>
             </div>
           )}

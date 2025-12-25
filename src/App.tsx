@@ -7,6 +7,7 @@ import { ServicePage } from "./pages/ServicePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { DoctorsList } from "./components/DoctorsList";
 import { Footer } from "./components/Footer";
+import { MakeAnAppointment } from "./components/MakeAnAppointment";
 
 export const App = () => {
   return (
@@ -21,6 +22,7 @@ export const App = () => {
       </Routes>
 
       <DoctorsList />
+      <MakeAnAppointment />
       <Footer />
     </>
   );

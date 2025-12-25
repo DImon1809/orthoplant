@@ -1,10 +1,63 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import type { Dispatch, SetStateAction } from "react";
 
-import logo from "../../assets/logo.svg";
-import calendar from "../../assets/Calendar.svg";
+import logo from "../../assets/logo.webp";
+import calendar from "../../assets/Calendar.webp";
 
 import styles from "./style.module.scss";
 import { useNavigate, useLocation } from "react-router-dom";
+
+type LogoProps = {
+  className?: string;
+  navigate: (arg: string) => void;
+  setActive: Dispatch<SetStateAction<boolean>>;
+};
+
+type ItemProps = {
+  item: {
+    text: string;
+    id?: string;
+    isPage: boolean;
+  };
+  index: number;
+};
+
+const Logo = ({ navigate, setActive, className }: LogoProps) => {
+  return (
+    <div className={`${className ? className : styles.logo__wrapper}`}>
+      <img
+        src={logo}
+        alt="#"
+        onClick={() => {
+          if (location.pathname !== "/") navigate("/");
+          if (location.pathname === "/") window.scrollTo(0, 0);
+
+          setActive(false);
+        }}
+      />
+    </div>
+  );
+};
+
+const Item = ({ item, index }: ItemProps) => {
+  const [move, setMove] = useState<boolean>(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setMove(true);
+    }, index);
+  }, [index]);
+
+  return (
+    <li className={`${styles.nav__button} ${move ? styles.move : ""}`}>
+      {!item.isPage ? (
+        <a href={item.id}>{item.text}</a>
+      ) : (
+        <span>{item.text}</span>
+      )}
+    </li>
+  );
+};
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -14,20 +67,14 @@ export const Navbar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.logo__wrapper}>
-        <img
-          src={logo}
-          alt="#"
-          onClick={() => {
-            if (location.pathname !== "/") navigate("/");
-            if (location.pathname === "/") window.scrollTo(0, 0);
-
-            setActive(false);
-          }}
-        />
-      </div>
-
+      <Logo navigate={navigate} setActive={setActive} />
       <div className={`${styles.buttons__wrapper} ${active && styles.active}`}>
+        <Logo
+          navigate={navigate}
+          setActive={setActive}
+          className={styles.logo__buttons}
+        />
+
         <div className={styles.nav__buttons__wrapper}>
           <span
             className={`${styles.nav__button} ${styles.main__button}`}
@@ -41,19 +88,29 @@ export const Navbar = () => {
             Главная
           </span>
           <ul>
-            <li className={styles.nav__button}>О нас</li>
-            <li className={styles.nav__button}>Наши услуги</li>
-            <li className={styles.nav__button}>Цены</li>
-            <li className={styles.nav__button}>Локация</li>
-            <li className={styles.nav__button}>Лицензия</li>
+            {[
+              { text: "О нас", id: "#about__us", isPage: false },
+              { text: "Наши услуги", id: "#our__services", isPage: false },
+              // {text: "Цены"},
+              { text: "Локация", id: "#location", isPage: false },
+              { text: "Лицензия", isPage: true },
+            ].map((item, index) => (
+              <Item item={item} index={index * 100 + 100} />
+            ))}
           </ul>
         </div>
 
-        <div className={styles.recording__button}>
-          <img src={calendar} alt="#" className={styles.calendar} />
+        <a href={"tel:+79999999933"} className={styles.phone__link}>
+          +7 (999) 999-99-33
+        </a>
 
-          <span>Запись на приём</span>
-        </div>
+        <a href="#appointment" className={styles.recording__wrapper}>
+          <div className={styles.recording__button}>
+            <img src={calendar} alt="#" className={styles.calendar} />
+
+            <span>Запись на приём</span>
+          </div>
+        </a>
       </div>
 
       <div
