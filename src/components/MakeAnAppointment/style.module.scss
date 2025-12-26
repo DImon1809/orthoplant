@@ -81,6 +81,11 @@
       }
     }
 
+    .phone__number__input {
+      display: flex;
+      flex-direction: column;
+    }
+
     .form__input {
       width: 530px;
       height: 90px;

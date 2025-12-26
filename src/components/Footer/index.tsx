@@ -39,9 +39,11 @@ export const Footer = () => {
 
           {isReverse && (
             <div className={styles.column__four}>
-              <div className={styles.button}>
-                <span>Онлайн запись</span>
-              </div>
+              <a href="#appointment" className={styles.button__wrapper}>
+                <div className={styles.button}>
+                  <span>Онлайн запись</span>
+                </div>
+              </a>
 
               <a href={"tel:+79999999933"} className={styles.phone__link}>
                 +7 (999) 999-99-33

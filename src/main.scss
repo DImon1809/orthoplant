@@ -11,10 +11,8 @@
   font-family: "Crimson Text", serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
+html,
 body {
+  scroll-behavior: smooth;
   overflow-x: hidden;
 }

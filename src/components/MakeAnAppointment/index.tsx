@@ -121,7 +121,7 @@ export const MakeAnAppointment = () => {
           required
         />
 
-        <div>
+        <div className={styles.phone__number__input}>
           <input
             type="tel"
             className={`${styles.form__input} ${!isValidPhone() && phone.length > 3 ? styles.invalid : ""}`}

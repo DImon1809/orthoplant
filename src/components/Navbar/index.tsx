@@ -20,6 +20,7 @@ type ItemProps = {
     isPage: boolean;
   };
   index: number;
+  setActive: Dispatch<SetStateAction<boolean>>;
 };
 
 const Logo = ({ navigate, setActive, className }: LogoProps) => {
@@ -39,7 +40,7 @@ const Logo = ({ navigate, setActive, className }: LogoProps) => {
   );
 };
 
-const Item = ({ item, index }: ItemProps) => {
+const Item = ({ item, index, setActive }: ItemProps) => {
   const [move, setMove] = useState<boolean>(false);
 
   useEffect(() => {
@@ -48,13 +49,22 @@ const Item = ({ item, index }: ItemProps) => {
     }, index);
   }, [index]);
 
-  return (
-    <li className={`${styles.nav__button} ${move ? styles.move : ""}`}>
-      {!item.isPage ? (
-        <a href={item.id}>{item.text}</a>
-      ) : (
-        <span>{item.text}</span>
-      )}
+  return !item.isPage ? (
+    <a
+      href={item.id}
+      className={styles.button__wrapper}
+      onClick={() => setActive(false)}
+    >
+      <li className={`${styles.nav__button} ${move ? styles.move : ""}`}>
+        {item.text}
+      </li>
+    </a>
+  ) : (
+    <li
+      className={`${styles.nav__button} ${move ? styles.move : ""}`}
+      onClick={() => setActive(false)}
+    >
+      {item.text}
     </li>
   );
 };
@@ -64,6 +74,16 @@ export const Navbar = () => {
   const location = useLocation();
 
   const [active, setActive] = useState<boolean>(false);
+
+  const handleScroll = (): void => {
+    if (active) setActive(false);
+  };
+
+  useEffect(() => {
+    document.addEventListener("scroll", handleScroll);
+
+    return () => document.removeEventListener("scroll", handleScroll);
+  });
 
   return (
     <nav className={styles.navbar}>
@@ -95,7 +115,11 @@ export const Navbar = () => {
               { text: "Локация", id: "#location", isPage: false },
               { text: "Лицензия", isPage: true },
             ].map((item, index) => (
-              <Item item={item} index={index * 100 + 100} />
+              <Item
+                item={item}
+                index={index * 100 + 100}
+                setActive={setActive}
+              />
             ))}
           </ul>
         </div>
@@ -104,7 +128,11 @@ export const Navbar = () => {
           +7 (999) 999-99-33
         </a>
 
-        <a href="#appointment" className={styles.recording__wrapper}>
+        <a
+          href="#appointment"
+          className={styles.recording__wrapper}
+          onClick={() => setActive(false)}
+        >
           <div className={styles.recording__button}>
             <img src={calendar} alt="#" className={styles.calendar} />
 

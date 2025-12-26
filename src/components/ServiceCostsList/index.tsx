@@ -7,7 +7,15 @@ type Props = {
   item: ServicesCosts;
 };
 
-const Item = ({ service, isLeft }: { service: string; isLeft: boolean }) => {
+const Item = ({
+  service,
+  cost,
+  isLeft,
+}: {
+  service: string;
+  cost: string;
+  isLeft: boolean;
+}) => {
   const cardRef = useRef<HTMLLIElement>(null);
 
   const [moveCard, setMoveCard] = useState<boolean>(false);
@@ -34,7 +42,7 @@ const Item = ({ service, isLeft }: { service: string; isLeft: boolean }) => {
       ref={cardRef}
     >
       <div>{service}</div>
-      <div className={styles.cost}>{service}</div>
+      <div className={styles.cost}>{cost}</div>
     </li>
   );
 };
@@ -48,6 +56,7 @@ export const ServiceCostsList = ({ item }: Props) => {
         {item.costs.map((cost, key) => (
           <Item
             service={cost.service}
+            cost={cost.cost}
             key={key}
             isLeft={key % 2 === 0 ? true : false}
           />

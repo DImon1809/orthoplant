@@ -75,6 +75,9 @@ export const AboutUs = () => {
   useEffect(() => {
     document.addEventListener("scroll", handleScroll);
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    handleScroll();
+
     return () => document.removeEventListener("scroll", handleScroll);
   }, []);
 
