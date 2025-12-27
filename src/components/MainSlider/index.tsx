@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import type { TouchEvent } from "react";
 
@@ -84,15 +84,15 @@ export const MainSlider = () => {
     setIsSwiping(false);
   };
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     goToSlide("right");
-  //   }, 5000);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      goToSlide("right");
+    }, 5000);
 
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, [percent]);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [percent]);
 
   return (
     <div className={styles.main__slider}>
