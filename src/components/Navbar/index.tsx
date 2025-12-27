@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import type { Dispatch, SetStateAction } from "react";
 
+import { useNavigate, useLocation } from "react-router-dom";
+
 import logo from "../../assets/logo.webp";
 import calendar from "../../assets/Calendar.webp";
 
 import styles from "./style.module.scss";
-import { useNavigate, useLocation } from "react-router-dom";
 
 type LogoProps = {
   className?: string;
@@ -20,7 +21,9 @@ type ItemProps = {
     isPage: boolean;
   };
   index: number;
+  isAnother: boolean;
   setActive: Dispatch<SetStateAction<boolean>>;
+  navigate: (arg: string) => void;
 };
 
 const Logo = ({ navigate, setActive, className }: LogoProps) => {
@@ -40,8 +43,27 @@ const Logo = ({ navigate, setActive, className }: LogoProps) => {
   );
 };
 
-const Item = ({ item, index, setActive }: ItemProps) => {
+const Item = ({ item, index, setActive, navigate, isAnother }: ItemProps) => {
   const [move, setMove] = useState<boolean>(false);
+
+  const handleClick = () => {
+    setActive(false);
+
+    if (!item.isPage && isAnother && item?.id) {
+      navigate("/");
+      setTimeout(() => {
+        const element = document.querySelector(`${item.id}`);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }, 1000);
+
+      return;
+    }
+
+    if (!item.isPage && !isAnother && item?.id) {
+      const element = document.querySelector(`${item.id}`);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     setTimeout(() => {
@@ -49,20 +71,10 @@ const Item = ({ item, index, setActive }: ItemProps) => {
     }, index);
   }, [index]);
 
-  return !item.isPage ? (
-    <a
-      href={item.id}
-      className={styles.button__wrapper}
-      onClick={() => setActive(false)}
-    >
-      <li className={`${styles.nav__button} ${move ? styles.move : ""}`}>
-        {item.text}
-      </li>
-    </a>
-  ) : (
+  return (
     <li
       className={`${styles.nav__button} ${move ? styles.move : ""}`}
-      onClick={() => setActive(false)}
+      onClick={handleClick}
     >
       {item.text}
     </li>
@@ -119,6 +131,8 @@ export const Navbar = () => {
                 item={item}
                 index={index * 100 + 100}
                 setActive={setActive}
+                navigate={navigate}
+                isAnother={location.pathname !== "/"}
               />
             ))}
           </ul>

@@ -79,7 +79,7 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
 
 export const DoctorsList = () => {
   return (
-    <section className={styles.doctors__list}>
+    <section id="doctors" className={styles.doctors__list}>
       <h3 className={styles.title}>ОПЫТНЫЕ ВРАЧИ</h3>
       <div className={styles.doctors__slider}>
         {doctors.map((doctor, index) => (

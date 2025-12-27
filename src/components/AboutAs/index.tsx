@@ -8,12 +8,13 @@ import { useIsMobile } from "../../hooks/useIsMobule";
 import styles from "./style.module.scss";
 
 type CardProps = {
+  text: string;
   link: string;
   index: number;
   isMove: boolean;
 };
 
-const CardLink = ({ link, index, isMove }: CardProps) => {
+const CardLink = ({ text, link, index, isMove }: CardProps) => {
   const [cardMove, setCardMove] = useState<boolean>(false);
 
   useEffect(() => {
@@ -27,12 +28,16 @@ const CardLink = ({ link, index, isMove }: CardProps) => {
   return (
     <div
       className={`${styles.card__link} ${index ? styles.step__right : styles.step__left} ${cardMove ? styles.move : ""}`}
+      onClick={() => {
+        const element = document.querySelector(`${link}`);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }}
     >
       <div className={styles.arrow__wrapper}>
         <img className={styles.arrow} src={AskewArrow} alt="#" />
       </div>
       <div className={styles.paragraph__wrapper}>
-        <p className={styles.paragraph}>{link}</p>
+        <p className={styles.paragraph}>{text}</p>
       </div>
     </div>
   );
@@ -49,8 +54,14 @@ export const AboutUs = () => {
 
   const links = useMemo(
     () => [
-      isMobile ? "Специалисты" : "Профессиональные стоматологи",
-      "ЦЕНЫ ЗА УСЛУГИ",
+      {
+        link: "#doctors",
+        text: isMobile ? "Специалисты" : "Профессиональные стоматологи",
+      },
+      {
+        link: "#our__services",
+        text: "УСЛУГИ",
+      },
     ],
     [isMobile]
   );
@@ -103,8 +114,14 @@ export const AboutUs = () => {
           </div>
         </div>
         <div className={styles.cards__wrapper}>
-          {links.map((link, index) => (
-            <CardLink link={link} key={index} index={index} isMove={moveInfo} />
+          {links.map(({ link, text }, index) => (
+            <CardLink
+              text={text}
+              link={link}
+              key={index}
+              index={index}
+              isMove={moveInfo}
+            />
           ))}
         </div>
       </div>
