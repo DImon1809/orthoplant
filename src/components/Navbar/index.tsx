@@ -19,6 +19,7 @@ type ItemProps = {
     text: string;
     id?: string;
     isPage: boolean;
+    url?: string;
   };
   index: number;
   isAnother: boolean;
@@ -62,6 +63,19 @@ const Item = ({ item, index, setActive, navigate, isAnother }: ItemProps) => {
     if (!item.isPage && !isAnother && item?.id) {
       const element = document.querySelector(`${item.id}`);
       if (element) element.scrollIntoView({ behavior: "smooth" });
+    }
+
+    if (item.isPage && item?.url && item?.id) {
+      if (location.pathname !== item.url) {
+        navigate(item.url);
+        setTimeout(() => {
+          const element = document.querySelector(`${item.id}`);
+          if (element) element.scrollIntoView({ behavior: "smooth" });
+        }, 1000);
+      } else {
+        const element = document.querySelector(`${item.id}`);
+        if (element) element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -125,9 +139,15 @@ export const Navbar = () => {
               { text: "Наши услуги", id: "#our__services", isPage: false },
               // {text: "Цены"},
               { text: "Локация", id: "#location", isPage: false },
-              { text: "Лицензия", isPage: true },
+              {
+                text: "Лицензия",
+                isPage: true,
+                id: "#licensia",
+                url: "licensia",
+              },
             ].map((item, index) => (
               <Item
+                key={index}
                 item={item}
                 index={index * 100 + 100}
                 setActive={setActive}

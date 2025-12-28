@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { FooterLine } from "../FooterLine";
 
@@ -9,6 +9,9 @@ import FooterLogo from "../../assets/FooterLogo.svg";
 import styles from "./style.module.scss";
 
 export const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const [isReverse, setIsReverse] = useState<boolean>(false);
 
   useEffect(() => {
@@ -86,9 +89,63 @@ export const Footer = () => {
             <div>
               <h3 className={styles.title}>о нас</h3>
               <ul className={styles.items}>
-                <li className={styles.item}>Лицензия</li>
-                <li className={styles.item}>Локация</li>
-                <li className={styles.item}>Врачи</li>
+                <li
+                  className={styles.item}
+                  onClick={() => {
+                    if (location.pathname !== "/licensia") {
+                      navigate("/licensia");
+                      setTimeout(() => {
+                        const element = document.querySelector("#licensia");
+                        if (element)
+                          element.scrollIntoView({ behavior: "smooth" });
+                      }, 1000);
+                    } else {
+                      const element = document.querySelector("#licensia");
+                      if (element)
+                        element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  Лицензия
+                </li>
+                <li
+                  className={styles.item}
+                  onClick={() => {
+                    if (location.pathname !== "/") {
+                      navigate("/");
+                      setTimeout(() => {
+                        const element = document.querySelector("#location");
+                        if (element)
+                          element.scrollIntoView({ behavior: "smooth" });
+                      }, 1000);
+                    } else {
+                      const element = document.querySelector("#location");
+                      if (element)
+                        element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  Локация
+                </li>
+                <li
+                  className={styles.item}
+                  onClick={() => {
+                    if (location.pathname !== "/") {
+                      navigate("/");
+                      setTimeout(() => {
+                        const element = document.querySelector("#doctors");
+                        if (element)
+                          element.scrollIntoView({ behavior: "smooth" });
+                      }, 1000);
+                    } else {
+                      const element = document.querySelector("#doctors");
+                      if (element)
+                        element.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  Врачи
+                </li>
               </ul>
             </div>
           </div>

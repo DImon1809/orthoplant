@@ -93,6 +93,14 @@
         text-decoration: none;
         color: rgba(0, 0, 0, 0.5);
       }
+
+      .item {
+        cursor: pointer;
+
+        @media (max-width: 620px) {
+          cursor: default;
+        }
+      }
     }
   }
 
