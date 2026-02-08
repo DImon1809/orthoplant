@@ -49,7 +49,7 @@ export const YandexMap = ({ center = [55.751574, 37.573856] }) => {
         },
         {
           preset: "islands#blueDotIcon",
-        }
+        },
       );
 
       mapInstance.current.geoObjects.add(marker);
@@ -65,9 +65,11 @@ export const YandexMap = ({ center = [55.751574, 37.573856] }) => {
   }, [center]);
 
   return (
-    <div className={styles.map__wrapper}>
-      <h4>Наш адрес: улица Просвещения, 12к2 Пушкино, Московская область</h4>
-      <div id="location" ref={mapRef} className={styles.yandex__map} />
+    <div className={styles.yandex__map} id="location">
+      <h4 className={styles.address}>
+        Наш адрес: ул. Просвещения, 12к2, Пушкино, Московская область, 141202
+      </h4>
+      <div ref={mapRef} className={styles.yandex__map} />
     </div>
   );
 };

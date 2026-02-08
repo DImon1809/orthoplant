@@ -92,6 +92,8 @@
       .icon__wrapper {
         width: 216px;
         height: 216px;
+        background-color: #f6f6f6;
+        border-radius: 50%;
 
         @media (max-width: 1010px) {
           width: 175px;
@@ -185,11 +187,6 @@
               opacity: 0.5;
             }
           }
-        }
-
-        &:active {
-          transform: translateY(-5px);
-          opacity: 0.5;
         }
       }
     }

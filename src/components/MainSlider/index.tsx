@@ -4,10 +4,15 @@ import type { TouchEvent } from "react";
 
 import { useIsMobile } from "../../hooks/useIsMobule";
 
-import slide1 from "../../assets/slide1.svg";
-import slide2 from "../../assets/slide2.svg";
-import slide3 from "../../assets/slide3.svg";
+// import slide1 from "../../assets/slide1.svg";
+// import slide4 from "../../assets/slide4.svg";
+// import slide2 from "../../assets/slide2.svg";
+// import slide3 from "../../assets/slide3.svg";
 import arrow from "../../assets/Arrow.svg";
+
+import slide1 from "../../assets/new-advertisement/slide1.webp";
+import slide2 from "../../assets/new-advertisement/slide2.webp";
+import slide3 from "../../assets/new-advertisement/slide3.webp";
 
 import styles from "./style.module.scss";
 

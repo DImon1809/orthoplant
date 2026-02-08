@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Navbar } from "./components/Navbar";
 
@@ -6,11 +8,11 @@ import { MainPage } from "./pages/MainPage";
 import { ServicePage } from "./pages/ServicePage";
 import { LicensiaPage } from "./pages/LicensiaPage";
 import { NotFoundPage } from "./pages/NotFoundPage";
-// import { DoctorsList } from "./components/DoctorsList";
+import { DoctorsList } from "./components/DoctorsList";
 import { Footer } from "./components/Footer";
 import { MakeAnAppointment } from "./components/MakeAnAppointment";
 
-export const App = () => {
+const Root = () => {
   return (
     <>
       <Navbar />
@@ -23,9 +25,18 @@ export const App = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
-      {/* <DoctorsList /> */}
+      <DoctorsList />
       <MakeAnAppointment />
       <Footer />
+    </>
+  );
+};
+
+export const App = () => {
+  return (
+    <>
+      <ToastContainer />
+      <Root />
     </>
   );
 };

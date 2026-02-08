@@ -2,8 +2,8 @@ import type { JSX } from "react";
 
 import Haluf from "../../assets/doctors/Haluf.svg";
 import Shikhu from "../../assets/doctors/Shikhu.svg";
-import Jenelia from "../../assets/doctors/Jenelia.svg";
-import Jagajeet from "../../assets/doctors/Jagajeet.svg";
+// import Jenelia from "../../assets/doctors/Jenelia.svg";
+// import Jagajeet from "../../assets/doctors/Jagajeet.svg";
 
 import styles from "./style.module.scss";
 
@@ -36,28 +36,28 @@ const doctors: Doctor[] = [
     experience: "более 8 лет",
     Icon: <img src={Shikhu} className={styles.icon} />,
   },
-  {
-    firstName: "Тест",
-    lastName: "Тестов",
-    surname: "Тестович",
-    profession: "Тест",
-    experience: "2 года",
-    Icon: <img src={Jenelia} className={styles.icon} />,
-  },
-  {
-    firstName: "Тест",
-    lastName: "Тестов",
-    surname: "Тестович",
-    profession: "Тест",
-    experience: "2 года",
-    Icon: <img src={Jagajeet} className={styles.icon} />,
-  },
+  // {
+  //   firstName: "Тест",
+  //   lastName: "Тестов",
+  //   surname: "Тестович",
+  //   profession: "Тест",
+  //   experience: "2 года",
+  //   Icon: <img src={Jenelia} className={styles.icon} />,
+  // },
+  // {
+  //   firstName: "Тест",
+  //   lastName: "Тестов",
+  //   surname: "Тестович",
+  //   profession: "Тест",
+  //   experience: "2 года",
+  //   Icon: <img src={Jagajeet} className={styles.icon} />,
+  // },
 ];
 
 const DoctorCard = ({ doctor }: DoctorCardProps) => {
   return (
     <div className={styles.doctor__card}>
-      <div className={styles.icon__wrapper}>{doctor.Icon}</div>
+      <div className={styles.icon__wrapper}>{/* {doctor.Icon} */}</div>
       <div>
         <h5 className={styles.doctor__fio}>{`${doctor.firstName} ${
           doctor.lastName
@@ -70,9 +70,9 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
         </div>
       </div>
 
-      <div className={styles.doctor__button}>
+      {/* <div className={styles.doctor__button}>
         <span>Подробнее</span>
-      </div>
+      </div> */}
     </div>
   );
 };

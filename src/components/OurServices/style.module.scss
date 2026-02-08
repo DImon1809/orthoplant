@@ -80,11 +80,6 @@
         }
       }
 
-      &:active {
-        transform: translateY(-5px);
-        opacity: 0.5;
-      }
-
       @media (max-width: 1330px) {
         width: 480px;
         height: 270px;
@@ -304,11 +299,6 @@
         transform: translateY(-5px);
         opacity: 0.5;
       }
-    }
-
-    &:active {
-      transform: translateY(-5px);
-      opacity: 0.5;
     }
 
     @media (max-width: 1330px) {

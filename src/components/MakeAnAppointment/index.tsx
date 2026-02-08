@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import type { ChangeEvent, KeyboardEvent } from "react";
+import emailjs from "emailjs-com";
 import { YandexMap } from "../YandexMap";
+import { toast } from "react-toastify";
+
 import styles from "./style.module.scss";
 
 export const MakeAnAppointment = () => {
@@ -82,28 +85,55 @@ export const MakeAnAppointment = () => {
     return digitsOnly.length === 11;
   };
 
-  const getCleanPhoneNumber = (): string => {
-    return phone.replace(/\D/g, "");
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+    try {
+      e.preventDefault();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+      if (!isValidPhone()) {
+        setIsError(true);
+        return;
+      }
 
-    if (!isValidPhone()) {
-      setIsError(true);
-      return;
+      const templateParams = {
+        name,
+        phone,
+      };
+
+      await emailjs.send(
+        "Orthoplant",
+        "template_yk7uh2p",
+        templateParams,
+        "fiIAM3gRE7F997eL8",
+      );
+
+      toast.success(
+        "Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        },
+      );
+
+      setName("");
+      setPhone("");
+    } catch (err) {
+      console.error(err);
+
+      toast.error("Ошибка при отправке заявки. Попробуйте еще раз.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     }
-
-    const subject = "Новая запись на прием";
-    const body = `Имя: ${name}\nТелефон: ${phone}`;
-
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=jackobmike85@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    window.open(gmailUrl, "_blank", "width=800,height=600");
-
-    const cleanPhone = getCleanPhoneNumber();
-    console.log("Имя:", name);
-    console.log("Телефон:", cleanPhone);
   };
 
   return (

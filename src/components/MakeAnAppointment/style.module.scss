@@ -28,6 +28,7 @@
     flex-direction: column;
     justify-content: flex-end;
     gap: 36px;
+    scroll-margin-top: 160px;
 
     @media (max-width: 1330px) {
       gap: 28px;
@@ -164,11 +165,6 @@
         height: 60px;
         border-radius: 22px;
         cursor: default;
-      }
-
-      &:active {
-        transform: translateY(-5px);
-        opacity: 0.5;
       }
 
       span {
