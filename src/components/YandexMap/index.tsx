@@ -64,5 +64,10 @@ export const YandexMap = ({ center = [55.751574, 37.573856] }) => {
     };
   }, [center]);
 
-  return <div id="location" ref={mapRef} className={styles.yandex__map} />;
+  return (
+    <div className={styles.map__wrapper}>
+      <h4>Наш адрес: улица Просвещения, 12к2 Пушкино, Московская область</h4>
+      <div id="location" ref={mapRef} className={styles.yandex__map} />
+    </div>
+  );
 };

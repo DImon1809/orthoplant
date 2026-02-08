@@ -1,29 +1,40 @@
-.yandex__map {
-  width: 638px;
-  height: 660px;
-  touch-action: pan-y;
-  pointer-events: auto;
+.map__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 
-  @media (max-width: 1330px) {
-    width: 500px;
-    height: 520px;
+  h4 {
+    text-align: center;
   }
 
-  @media (max-width: 1010px) {
-    width: 420px;
-    height: 466px;
-  }
+  .yandex__map {
+    width: 638px;
+    height: 660px;
+    touch-action: pan-y;
+    pointer-events: auto;
 
-  @media (max-width: 810px) {
-    width: 600px;
-    height: 630px;
-  }
+    @media (max-width: 1330px) {
+      width: 500px;
+      height: 520px;
+    }
 
-  @media (max-width: 620px) {
-    width: 90%;
-    height: 530px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @media (max-width: 1010px) {
+      width: 420px;
+      height: 466px;
+    }
+
+    @media (max-width: 810px) {
+      width: 600px;
+      height: 630px;
+    }
+
+    @media (max-width: 620px) {
+      width: 90%;
+      height: 530px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }

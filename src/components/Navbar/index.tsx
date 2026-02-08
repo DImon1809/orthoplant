@@ -18,8 +18,9 @@ type ItemProps = {
   item: {
     text: string;
     id?: string;
-    isPage: boolean;
+    isPage?: boolean;
     url?: string;
+    isMain?: boolean;
   };
   index: number;
   isAnother: boolean;
@@ -50,7 +51,12 @@ const Item = ({ item, index, setActive, navigate, isAnother }: ItemProps) => {
   const handleClick = () => {
     setActive(false);
 
-    if (!item.isPage && isAnother && item?.id) {
+    if (item?.isMain) {
+      if (location.pathname !== "/") navigate("/");
+      if (location.pathname === "/") window.scrollTo(0, 0);
+    }
+
+    if (!item?.isPage && isAnother && item?.id) {
       navigate("/");
       setTimeout(() => {
         const element = document.querySelector(`${item.id}`);
@@ -60,12 +66,12 @@ const Item = ({ item, index, setActive, navigate, isAnother }: ItemProps) => {
       return;
     }
 
-    if (!item.isPage && !isAnother && item?.id) {
+    if (!item?.isPage && !isAnother && item?.id) {
       const element = document.querySelector(`${item.id}`);
       if (element) element.scrollIntoView({ behavior: "smooth" });
     }
 
-    if (item.isPage && item?.url && item?.id) {
+    if (item?.isPage && item?.url && item?.id) {
       if (location.pathname !== item.url) {
         navigate(item.url);
         setTimeout(() => {
@@ -122,7 +128,7 @@ export const Navbar = () => {
         />
 
         <div className={styles.nav__buttons__wrapper}>
-          <span
+          {/* <span
             className={`${styles.nav__button} ${styles.main__button}`}
             onClick={() => {
               if (location.pathname !== "/") navigate("/");
@@ -132,9 +138,10 @@ export const Navbar = () => {
             }}
           >
             Главная
-          </span>
+          </span> */}
           <ul>
             {[
+              { text: "Главная", isMain: true },
               { text: "О нас", id: "#about__us", isPage: false },
               { text: "Наши услуги", id: "#our__services", isPage: false },
               // {text: "Цены"},
@@ -158,8 +165,8 @@ export const Navbar = () => {
           </ul>
         </div>
 
-        <a href={"tel:+79999999933"} className={styles.phone__link}>
-          +7 (999) 999-99-33
+        <a href={"tel:+79253005552"} className={styles.phone__link}>
+          +7 (925) 300-55-52
         </a>
 
         <a

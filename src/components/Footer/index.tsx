@@ -48,10 +48,10 @@ export const Footer = () => {
                 </div>
               </a>
 
-              <a href={"tel:+79999999933"} className={styles.phone__link}>
-                +7 (999) 999-99-33
+              <a href={"tel:+79253005552"} className={styles.phone__link}>
+                +7 (925) 300-55-52
               </a>
-              <span className={styles.email}>orthoplant@gmail.com</span>
+              <span className={styles.email}>Ortoplant@yandex.com</span>
             </div>
           )}
 
@@ -158,10 +158,10 @@ export const Footer = () => {
                 </div>
               </a>
 
-              <a href={"tel:+79999999933"} className={styles.phone__link}>
-                +7 (999) 999-99-33
+              <a href={"tel:+79253005552"} className={styles.phone__link}>
+                +7 (925) 300-55-52
               </a>
-              <span className={styles.email}>orthoplant@gmail.com</span>
+              <span className={styles.email}>Ortoplant@yandex.com</span>
             </div>
           )}
         </div>
