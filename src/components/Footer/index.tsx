@@ -51,7 +51,7 @@ export const Footer = () => {
               <a href={"tel:+79253005552"} className={styles.phone__link}>
                 +7 (925) 300-55-52
               </a>
-              <span className={styles.email}>Ortoplant@yandex.com</span>
+              <span className={styles.email}>ortoplant@yandex.com</span>
             </div>
           )}
 
@@ -161,7 +161,7 @@ export const Footer = () => {
               <a href={"tel:+79253005552"} className={styles.phone__link}>
                 +7 (925) 300-55-52
               </a>
-              <span className={styles.email}>Ortoplant@yandex.com</span>
+              <span className={styles.email}>ortoplant@yandex.com</span>
             </div>
           )}
         </div>

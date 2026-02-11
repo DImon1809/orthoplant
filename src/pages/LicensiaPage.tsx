@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import type { TouchEvent } from "react";
 import { useIsMobile } from "../hooks/useIsMobule";
-import Lic1 from "../assets/licensia/Lic1.webp";
-import Lic2 from "../assets/licensia/Lic2.webp";
+import Lic1 from "../assets/new-licensia/Lic1.webp";
+import Lic2 from "../assets/new-licensia/Lic2.webp";
 import arrow from "../assets/Arrow.svg";
 import styles from "./style.module.scss";
 

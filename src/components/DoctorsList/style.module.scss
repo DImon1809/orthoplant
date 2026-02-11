@@ -178,14 +178,12 @@
           }
         }
 
-        @media (hover: hover) {
-          &:hover {
-            opacity: 0.5;
-            transform: translateY(-5px);
+        &:active {
+          opacity: 0.5;
+          transform: translateY(-5px);
 
-            span {
-              opacity: 0.5;
-            }
+          span {
+            opacity: 0.5;
           }
         }
       }

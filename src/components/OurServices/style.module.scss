@@ -73,11 +73,9 @@
         transform: translate(0, 0);
       }
 
-      @media (hover: hover) {
-        &:hover {
-          transform: translateY(-5px);
-          opacity: 0.5;
-        }
+      &:active {
+        transform: translateY(-5px);
+        opacity: 0.5;
       }
 
       @media (max-width: 1330px) {
@@ -294,11 +292,9 @@
       transform: translate(0, 0);
     }
 
-    @media (hover: hover) {
-      &:hover {
-        transform: translateY(-5px);
-        opacity: 0.5;
-      }
+    &:active {
+      transform: translateY(-5px);
+      opacity: 0.5;
     }
 
     @media (max-width: 1330px) {

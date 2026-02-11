@@ -9,7 +9,7 @@ declare global {
   }
 }
 
-export const YandexMap = ({ center = [55.751574, 37.573856] }) => {
+export const YandexMap = ({ center = [55.80528, 37.752095] }) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef = useRef<any | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -36,14 +36,14 @@ export const YandexMap = ({ center = [55.751574, 37.573856] }) => {
 
       // Создаем карту
       mapInstance.current = new window.ymaps.Map(mapRef.current, {
-        center: [56.027575, 37.860216],
+        center: [55.80528, 37.752095],
         zoom: 17,
         controls: ["zoomControl", "fullscreenControl"],
       });
 
       // Добавляем маркер
       const marker = new window.ymaps.Placemark(
-        [56.027575, 37.860216],
+        [55.80528, 37.752095],
         {
           balloonContent: "Центр карты",
         },
@@ -67,7 +67,9 @@ export const YandexMap = ({ center = [55.751574, 37.573856] }) => {
   return (
     <div className={styles.yandex__map} id="location">
       <h4 className={styles.address}>
-        Наш адрес: ул. Просвещения, 12к2, Пушкино, Московская область, 141202
+        Наш адрес: ул. Амурская, дом 2, корпус 2, помещение&nbsp;7Н,
+        вн.тер.г.&nbsp;муниципальный&nbsp;округ&nbsp;Гольяново, г.&nbsp;Москва,
+        105122
       </h4>
       <div ref={mapRef} className={styles.yandex__map} />
     </div>
